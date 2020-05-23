@@ -1,0 +1,24 @@
+<div class="card my-5">
+  <div class="card-body">
+    <h2 class="bg-secondary text-center text-white py-3">Vehicles list</h2>
+    <br>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Mark</th>
+        <th scope="col">Model</th>
+        <th scope="col">Color</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let vehicle of vehiclesList">
+        <td>{{ vehicle.id }}</td>
+        <td>{{ vehicle.mark }}</td>
+        <td>{{ vehicle.model }}</td>
+        <td>{{ vehicle.color }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

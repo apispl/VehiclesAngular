@@ -1,0 +1,49 @@
+<div class="card my-5">
+  <div class="card-body">
+    <h2 class="bg-secondary text-center text-white py-3">Add</h2>
+    <form (ngSubmit)="onSubmit()" #vehicleForm="ngForm">
+      <div class="form-group">
+        <input type="number" [(ngModel)]="vehicle.id"
+               class="form-control"
+               id="id"
+               name="id"
+               placeholder="Enter vehicle's ID"
+               required #id="ngModel">
+      </div>
+      <div [hidden]="!id.pristine" class="alert alert-danger">ID is required</div>
+
+      <div class="form-group">
+        <input type="text" [(ngModel)]="vehicle.mark"
+               class="form-control"
+               id="mark"
+               name="mark"
+               placeholder="Enter vehicle's mark"
+               required #mark="ngModel">
+      </div>
+      <div [hidden]="!mark.pristine" class="alert alert-danger">Mark is required</div>
+
+      <div class="form-group">
+        <input type="text" [(ngModel)]="vehicle.model"
+               class="form-control"
+               id="model"
+               name="model"
+               placeholder="Enter vehicle's model"
+               required #model="ngModel">
+        <div [hidden]="!model.pristine" class="alert alert-danger">Model is required</div>
+      </div>
+
+      <div class="form-group">
+        <input type="text" [(ngModel)]="vehicle.color"
+               class="form-control"
+               id="color"
+               name="color"
+               placeholder="Enter vehicle's color"
+               required #color="ngModel">
+        <div [hidden]="!color.pristine" class="alert alert-danger">Color is required</div>
+      </div>
+      <div style="text-align: center;"><button type="submit" [disabled]="!vehicleForm.form.valid"
+                                                     class="btn btn-info">Add</button>
+      </div>
+    </form>
+  </div>
+</div>

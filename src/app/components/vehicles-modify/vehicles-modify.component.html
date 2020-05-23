@@ -1,0 +1,82 @@
+<div class="card my-5">
+  <div class="card-body">
+    <h2 class="bg-secondary text-center text-white py-3">Modify</h2>
+    <form (ngSubmit)="onSubmit()" #vehicleGetByIdForm="ngForm">
+
+      <div class="form-group">
+        <input type="number" [(ngModel)]="vehicleId"
+               class="form-control"
+               id="vehicleId"
+               name="vehicleId"
+               placeholder="Enter vehicle's ID"
+               required #byId="ngModel">
+      </div>
+      <div [hidden]="!byId.pristine" class="alert alert-danger">ID is required</div>
+
+      <div style="text-align: center;"><button type="submit" [disabled]="!vehicleGetByIdForm.form.valid"
+                                               class="btn btn-info">Search</button>
+      </div>
+      <br>
+    </form>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Mark</th>
+        <th scope="col">Model</th>
+        <th scope="col">Color</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{ vehicleById.id }}</td>
+        <td>{{ vehicleById.mark }}</td>
+        <td>{{ vehicleById.model }}</td>
+        <td>{{ vehicleById.color }}</td>
+      </tr>
+      </tbody>
+    </table>
+    <form (ngSubmit)="onSubmitTwo()" #vehicleForm="ngForm">
+
+      <div class="form-group">
+        <label for="id">Edit ID</label>
+        <input type="number" [(ngModel)]="vehicleById.id"
+               class="form-control"
+               id="id"
+               name="id"
+               placeholder="Enter vehicle's ID">
+      </div>
+
+      <div class="form-group">
+        <label for="mark">Edit Mark</label>
+        <input type="text" [(ngModel)]="vehicleById.mark"
+               class="form-control"
+               id="mark"
+               name="mark"
+               placeholder="Enter vehicle's mark">
+      </div>
+
+      <div class="form-group">
+        <label for="model">Edit Model</label>
+        <input type="text" [(ngModel)]="vehicleById.model"
+               class="form-control"
+               id="model"
+               name="model"
+               placeholder="Enter vehicle's model">
+      </div>
+
+      <div class="form-group">
+        <label for="color">Edit Color</label>
+        <input type="text" [(ngModel)]="vehicleById.color"
+               class="form-control"
+               id="color"
+               name="color"
+               placeholder="Enter vehicle's color">
+      </div>
+      <div style="text-align: center;"><button type="submit" [disabled]="!vehicleForm.form.valid"
+                                               class="btn btn-info">Modify</button></div>
+    </form>
+  </div>
+</div>
+
+
